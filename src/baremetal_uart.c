@@ -1,14 +1,11 @@
-/**
+/*
  *	@file		baremetal_uart.c
- *	@author		Minh Nguyen	
- *	@date		01-Mar-21
- *	@brief		
+ *	@author		Minh Nguyen
  */
 
 /******************************************************************************
  *	Includes
  *****************************************************************************/
-
 #include "baremetal_uart.h"
 
 /******************************************************************************
@@ -19,8 +16,8 @@
  *	Functions
  *****************************************************************************/
 
-void BM_UART_Init(USART_TypeDef *UARTx, uint32_t bbr_value)
+void BM_UART_Init(USART_TypeDef *UARTx, uint32_t bbrVal)
 {
-	UARTx->BRR = (uint16_t)(bbr_value);
+	UARTx->BRR = (uint16_t)(bbrVal);
 	UARTx->CR1 = (uint16_t)((1 << 13)|(1 << 3)|(1 << 2));
 }

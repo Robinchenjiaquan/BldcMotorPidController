@@ -1,8 +1,6 @@
-/**
+/*
  *	@file		baremetal_gpio.h
- *	@author		Minh Nguyen	
- *	@date		01-Mar-21
- *	@brief		
+ *	@author		Minh Nguyen
  */
 
 #ifndef BAREMETAL_GPIO_H
@@ -11,7 +9,6 @@
 /******************************************************************************
  *	Includes
  *****************************************************************************/
-
 #include <stddef.h>
 #include "stm32l1xx.h"
 
@@ -30,13 +27,9 @@
 /******************************************************************************
  *	Function prototypes
  *****************************************************************************/
-
-void BM_GPIO_PinInit(GPIO_TypeDef *GPIOx, uint32_t pin_number, uint32_t mode_value, uint32_t af_value);
-
-void BM_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint32_t pin_number, uint32_t bit);
-
-void BM_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t pin_number);
-
-uint32_t BM_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint32_t pin_number);
+void BM_GPIO_PinInit(GPIO_TypeDef *GPIOx, uint32_t pinNum, uint32_t modeVal, uint32_t altFuncVal);
+void BM_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint32_t pinNum, uint32_t bitVal);
+void BM_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t pinNum);
+uint32_t BM_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint32_t pinNum);
 
 #endif

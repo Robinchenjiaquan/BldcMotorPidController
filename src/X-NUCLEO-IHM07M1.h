@@ -1,18 +1,16 @@
-/**
- *	@file		nucleo-l152re.h
+/*
+ *	@file		X-NUCLEO-IHM07M1.h
  *	@author		Minh Nguyen	
- *	@date		16-Mar-2021
- *	@brief		
  */
 
-#ifndef NUCLEO_L152RE_H
-#define NUCLEO_L152RE_H
+#ifndef X_NUCLEO_IHM07M1_H
+#define X_NUCLEO_IHM07M1_H
 
 /******************************************************************************
  *	Includes
  *****************************************************************************/
-
-#include "baremetal.h"
+#include "baremetal_rcc.h"
+#include "baremetal_gpio.h"
 
 /******************************************************************************
  *	Typedef
@@ -29,13 +27,19 @@
 /******************************************************************************
  *	Function prototypes
  *****************************************************************************/
-
-void UserLed_Init(void);
-
-void UserLed_On(void);
-
-void UserLed_Off(void);
-
-void UserLed_Toggle(void);
+void L6230_Init(void);
+void L6230_WriteInput_Ch1_E_Ch2_D_Ch3_D(void);
+void L6230_WriteInput_Ch1_D_Ch2_E_Ch3_D(void);
+void L6230_WriteInput_Ch1_D_Ch2_D_Ch3_E(void);
+void L6230_WriteInput_Ch1_D_Ch2_D_Ch3_D(void);
+void L6230_EnableInput_Ch1_D_Ch2_E_Ch3_E(void);
+void L6230_EnableInput_Ch1_E_Ch2_D_Ch3_E(void);
+void L6230_EnableInput_Ch1_E_Ch2_E_Ch3_D(void);
+void HallSensor_Init(void);
+uint32_t HallSensor_Read(void);
+void DebugLed_Init(void);
+void DebugLed_On(void);
+void DebugLed_Off(void);
+void DebugLed_Toggle(void);
 
 #endif

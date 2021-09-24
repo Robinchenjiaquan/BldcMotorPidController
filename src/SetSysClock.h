@@ -1,3 +1,8 @@
+/*
+ *	@file		main.c
+ *	@author
+ */
+
 /**
   * @brief  Configures the System clock frequency, AHB/APBx prescalers and Flash
   *         settings.

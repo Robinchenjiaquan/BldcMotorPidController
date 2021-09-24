@@ -1,8 +1,6 @@
-/**
+/*
  *	@file		baremetal.h
  *	@author		Minh Nguyen	
- *	@date		01-Mar-21
- *	@brief
  */
 
 #ifndef BAREMETAL_H
@@ -11,7 +9,6 @@
 /******************************************************************************
  *	Includes
  *****************************************************************************/
-
 #include "baremetal_gpio.h"
 #include "baremetal_rcc.h"
 #include "baremetal_tim.h"

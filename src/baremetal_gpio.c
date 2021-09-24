@@ -1,14 +1,11 @@
-/**
+/*
  *	@file		baremetal_gpio.c
  *	@author		Minh Nguyen	
- *	@date		01-Mar-21
- *	@brief		
  */
 
 /******************************************************************************
  *	Includes
  *****************************************************************************/
-
 #include "baremetal_gpio.h"
 
 /******************************************************************************
@@ -19,44 +16,44 @@
  *	Functions
  *****************************************************************************/
 
-void BM_GPIO_PinInit(GPIO_TypeDef *GPIOx, uint32_t pin_number, uint32_t mode_value, uint32_t af_value)
+void BM_GPIO_PinInit(GPIO_TypeDef *GPIOx, uint32_t pinNum, uint32_t modeVal, uint32_t altFuncVal)
 {
-	GPIOx->MODER &= ~((uint32_t)(0x3 << (pin_number * 2)));
-	GPIOx->MODER |= (uint32_t)(mode_value << (pin_number * 2));
-	if (pin_number < 7)
+	GPIOx->MODER &= ~((uint32_t)(0x3 << (pinNum * 2)));
+	GPIOx->MODER |= (uint32_t)(modeVal << (pinNum * 2));
+	if (pinNum < 7)
 	{
-		GPIOx->AFR[0] &= ~((uint32_t)(0xF << (pin_number * 4)));
-		GPIOx->AFR[0] |= (uint32_t)(af_value << (pin_number * 4));
+		GPIOx->AFR[0] &= ~((uint32_t)(0xF << (pinNum * 4)));
+		GPIOx->AFR[0] |= (uint32_t)(altFuncVal << (pinNum * 4));
 	}
 	else
 	{
-		GPIOx->AFR[1] &= ~((uint32_t)(0xF << (pin_number * 4)));
-		GPIOx->AFR[1] |= (uint32_t)(af_value << (pin_number * 4));
+		GPIOx->AFR[1] &= ~((uint32_t)(0xF << (pinNum * 4)));
+		GPIOx->AFR[1] |= (uint32_t)(altFuncVal << (pinNum * 4));
 	}
 }
 
-void BM_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint32_t pin_number, uint32_t bit)
+void BM_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint32_t pinNum, uint32_t bitVal)
 {
-	if (bit)
+	if (bitVal)
 	{
-		GPIOx->BSRR |= (uint16_t)(1 << pin_number);
+		GPIOx->BSRR |= (uint16_t)(1 << pinNum);
 	}
 	else
 	{
-		GPIOx->BRR |= (uint16_t)(1 << pin_number);
+		GPIOx->BRR |= (uint16_t)(1 << pinNum);
 	}
 }
 
-void BM_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t pin_number)
+void BM_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint32_t pinNum)
 {
-	GPIOx->ODR ^= (uint16_t)(1 << pin_number);
+	GPIOx->ODR ^= (uint16_t)(1 << pinNum);
 }
 
-uint32_t BM_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint32_t pin_number)
+uint32_t BM_GPIO_ReadPin(GPIO_TypeDef *GPIOx, uint32_t pinNum)
 {
-	uint32_t bit;
+	uint32_t bitVal;
 	
-	bit = (GPIOx->IDR & (uint16_t)(1 << pin_number)) >> pin_number;
+	bitVal = (GPIOx->IDR & (uint16_t)(1 << pinNum)) >> pinNum;
 	
-	return bit;
+	return bitVal;
 }

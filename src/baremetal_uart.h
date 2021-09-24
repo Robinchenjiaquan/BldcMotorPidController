@@ -1,8 +1,6 @@
-/**
+/*
  *	@file		baremetal_uart.h
- *	@author		Minh Nguyen	
- *	@date		01-Mar-21
- *	@brief		
+ *	@author		Minh Nguyen
  */
 
 #ifndef BAREMETAL_UART_H
@@ -11,7 +9,6 @@
 /******************************************************************************
  *	Includes
  *****************************************************************************/
-
 #include <stddef.h>
 #include "stm32l1xx.h"
 
@@ -30,7 +27,6 @@
 /******************************************************************************
  *	Function prototypes
  *****************************************************************************/
-
-void BM_UART_Init(USART_TypeDef *UARTx, uint32_t bbr_value);
+void BM_UART_Init(USART_TypeDef *UARTx, uint32_t bbrVal);
 
 #endif

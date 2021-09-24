@@ -1,8 +1,6 @@
-/**
+/*
  *	@file		baremetal_rcc.h
  *	@author		Minh Nguyen	
- *	@date		01-Mar-21
- *	@brief		
  */
 
 #ifndef BAREMETAL_RCC_H
@@ -11,7 +9,6 @@
 /******************************************************************************
  *	Includes
  *****************************************************************************/
-
 #include <stddef.h>
 #include "stm32l1xx.h"
 
@@ -30,11 +27,8 @@
 /******************************************************************************
  *	Function prototypes
  *****************************************************************************/
-
-void BM_RCC_EnableAHBClock(uint32_t bit_number);
-
-void BM_RCC_EnableAPB1Clock(uint32_t bit_number);
-
-void BM_RCC_EnableAPB2Clock(uint32_t bit_number);
+void BM_RCC_EnableAHBClock(uint32_t bitShift);
+void BM_RCC_EnableAPB1Clock(uint32_t bitShift);
+void BM_RCC_EnableAPB2Clock(uint32_t bitShift);
 
 #endif
